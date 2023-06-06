@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% block template %} {% include "navbar.html" %} {% endblock %}
+<html>
+  <head>
+    <title>Formulario de Registro de Quejas</title>
+    <style>
+      /* Estilos CSS */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      .form-group input[type="submit"] {
+        background-color: #8166ce;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Formulario de Registro de Quejas</h1>
+    <div class="container">
+      <form id="complaint-form">
+        <div class="form-group">
+          <label for="name">Nombre completo:</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="form-group">
+          <label for="complaint">Queja:</label>
+          <textarea id="complaint" rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Enviar Queja" />
+        </div>
+      </form>
+    </div>
+
+    <script>
+      // JavaScript
+      document
+        .getElementById("complaint-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Evita que el formulario se envíe de manera predeterminada
+
+          // Obtén los valores del formulario
+          var name = document.getElementById("name").value;
+          var email = document.getElementById("email").value;
+          var complaint = document.getElementById("complaint").value;
+
+          // Aquí puedes realizar las validaciones necesarias antes de enviar los datos al servidor
+
+          // Ejemplo: Imprimir los valores en la consola
+          console.log("Nombre:", name);
+          console.log("Email:", email);
+          console.log("Queja:", complaint);
+
+          // Aquí puedes enviar los datos al servidor utilizando una petición AJAX o realizar cualquier otra acción necesaria
+
+          // Reinicia el formulario
+          document.getElementById("complaint-form").reset();
+        });
+    </script>
+  </body>
+</html>
